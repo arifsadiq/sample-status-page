@@ -1,0 +1,31 @@
+name: Delete Branch
+on:
+  schedule:
+    - cron: "0 6 * * 5"
+
+jobs:
+  cleanup_old_branches:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+      repository-projects: write
+
+    name: Delete Old Branches
+    steps:
+      - name: GitHub Checkout
+        uses: actions/checkout@v4
+
+      - name: Delete old branches
+        uses: phpdocker-io/github-actions-delete-abandoned-branches@v2
+        id: delete_stuff
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          last_commit_age_days: 5
+          ignore_branches: main, master
+
+          # Disable dry run and actually get stuff deleted
+          dry_run: no
+
+      - name: Get output
+        run: "echo 'Deleted branches: ${{ steps.delete_stuff.outputs.deleted_branches }}'"

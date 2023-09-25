@@ -1,29 +1,18 @@
-// Simulated function to get service status
-function getServiceStatus(serviceName) {
-    // Replace this with actual service status checks
-    const randomStatus = Math.random() < 0.8 ? 'Operational' : 'Outage';
-    return randomStatus;
+const APP_STATUS = {
+    '0': 'Down',
+    '1': 'Up and Running',
+    '2': 'Operational',
 }
 
-// Update the status of a service
-function updateServiceStatus(serviceName) {
-    const statusElement = document.getElementById(`${serviceName}-status`);
-    const status = getServiceStatus(serviceName);
-    statusElement.textContent = status;
-    statusElement.classList.remove('loading');
-    statusElement.classList.add(status.toLowerCase());
+class AppStatus extends HTMLElement {
+    constructor() {
+        super();
+        const el = document.createElement('p');
+        el.innerText = this.getAttribute('name');
+        this.appendChild(el);
+        const status = document.createElement('p');
+        status.textContent = `${APP_STATUS[this.getAttribute('status')]}`;
+        this.appendChild(status);
+    }
 }
-
-// Update service statuses periodically (every 5 seconds in this example)
-function updateStatuses() {
-    const services = ['serviceA', 'serviceB', 'serviceC', 'serviceD']; // Add more service names as needed
-
-    services.forEach((service) => {
-        updateServiceStatus(service);
-    });
-
-    setTimeout(updateStatuses, 5000); // Update every 5 seconds
-}
-
-// Start updating statuses
-updateStatuses();
+customElements.define('app-status', AppStatus, { extends: 'article'} );

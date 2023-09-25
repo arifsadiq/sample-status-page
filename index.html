@@ -4,29 +4,27 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Nixminds</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles.css" type="text/css" />
 </head>
 <body>
-    <div class="status-container">
-        <h1>Nixminds-Service Status Page</h1>
-        <div class="service">
-            <h2>GitHub</h2>
-            <p class="status" id="serviceA-status">Loading...</p>
-        </div>
-        <div class="service">
-            <h2>Vercel</h2>
-            <p class="status" id="serviceB-status">Loading...</p>
-        </div>
-        <div class="service">
-            <h2>Supabase</h2>
-            <p class="status" id="serviceC-status">Loading...</p>
-        </div>
-        <div class="service">
-            <h2>DatoCMS</h2>
-            <p class="status" id="serviceD-status">Loading...</p>
-        </div>
-        <!-- Add more services as needed -->
-    </div>
+    <header>
+        <h1>Nixminds</h1>
+    </header>
+    <hr />
+    <h1>System Status</h1>
+    <main>
+        <h2>All Systems Operational</h2>
+        <article is="app-status" name="www.nixminds.com" status="1"></article>
+        <article is="app-status" name="GitHub" status="2"></article>
+        <article is="app-status" name="Vercel" status="2"></article>
+        <article is="app-status" name="Supabase" status="2"></article>
+        <article is="app-status" name="DatoCMS" status="2"></article>
+        </main>
+            <hr />
+    <footer>
+        <p>&copy; Copyright 2023 Nixminds</p>
+    </footer>   
+    
     <script src="script.js"></script>
 </body>
 </html>

@@ -1,0 +1,16 @@
+name: Simple Workflow
+on: [push]
+
+jobs:
+  simple-workflow-run:
+    runs-on: self-hosted
+
+    steps:
+      - name: checkout
+        uses: actions/checkout@v4
+
+      - name: Run following commands
+        run: |
+          ls -l
+          pwd
+          uname -a

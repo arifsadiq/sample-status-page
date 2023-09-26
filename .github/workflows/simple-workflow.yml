@@ -1,5 +1,10 @@
 name: Simple Workflow
-on: [push]
+on: 
+  push:
+  pull_request:
+    types: [opened, assigned, reopened, syncronize]    # Event Types
+  issues:
+    types: [opened]
 
 jobs:
   simple-workflow-run:

@@ -3,7 +3,7 @@ on: [push]
 
 jobs:
   simple-workflow-run:
-#    runs-on: self-hosted
+#   runs-on: ubuntu-latest
     runs-on: self-hosted
 
     steps:

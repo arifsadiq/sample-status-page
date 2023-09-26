@@ -1,7 +1,7 @@
 name: Expressions and Contexts
 on:
   push:
-run-name: "First Expressions & Contexts by Arif "
+run-name: "First Expressions & Contexts by @${{ github.actor }}, event: ${{ github.event_name }}"
 
   workflow_dispatch:
 

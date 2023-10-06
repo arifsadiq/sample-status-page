@@ -29,3 +29,4 @@ jobs:
 
       - name: Get output
         run: "echo 'Deleted branches: ${{ steps.delete_stuff.outputs.deleted_branches }}'"
+        

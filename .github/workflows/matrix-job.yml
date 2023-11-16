@@ -1,4 +1,4 @@
-name: Matrix Build
+name: Matrix Job
 
 on:
   push:
@@ -10,14 +10,21 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        os: [ubuntu-latest, windows-latest, macos-latest]
+        os: [ubuntu-20.04, ubuntu-18.04]
 
-    container:
-      image: nginx-${{ matrix.os }}
+    name: Build on ${{ matrix.os }}
 
     steps:
-      - name: Checkout repository
+      - name: Checkout Repository
         uses: actions/checkout@v2
 
-      - name: Display OS
-        run: echo "Running on ${{ matrix.os }}"
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '14'
+
+      - name: Install Dependencies
+        run: npm install
+
+      - name: Build
+        run: npm run build

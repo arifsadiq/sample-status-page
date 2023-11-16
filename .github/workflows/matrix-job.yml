@@ -13,7 +13,7 @@ jobs:
         os: [ubuntu-latest, windows-latest, macos-latest]
 
     container:
-      image: your-custom-image-${{ matrix.os }}
+      image: nginx-${{ matrix.os }}
 
     steps:
       - name: Checkout repository
